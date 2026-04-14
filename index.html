@@ -10,7 +10,7 @@
     --bg: #ffffff; --bg2: #f5f5f3; --bg3: #eeecea;
     --text: #1a1a18; --text2: #6b6b67; --text3: #9b9b97;
     --border: rgba(0,0,0,0.12); --border2: rgba(0,0,0,0.22);
-    --green: #1D9E75; --green-bg: #E1F5EE; --green-text: #085041;
+    --green: #1D9E75; --green-bg: #E1F5EE;
     --amber: #BA7517; --amber-bg: #FAEEDA; --amber-text: #854F0B;
     --red: #A32D2D; --red-bg: #FCEBEB;
     --blue-bg: #E6F1FB; --blue-text: #185FA5;
@@ -21,8 +21,7 @@
       --bg: #1e1e1c; --bg2: #272724; --bg3: #2e2e2b;
       --text: #e8e8e4; --text2: #9b9b97; --text3: #6b6b67;
       --border: rgba(255,255,255,0.1); --border2: rgba(255,255,255,0.2);
-      --green-bg: #04342C; --green-text: #9FE1CB;
-      --amber-bg: #412402; --amber-text: #FAC775;
+      --green-bg: #04342C; --amber-bg: #412402; --amber-text: #FAC775;
       --red-bg: #501313; --blue-bg: #042C53; --blue-text: #B5D4F4;
     }
   }
@@ -32,22 +31,15 @@
   .subtitle { font-size: 13px; color: var(--text2); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .save-indicator { font-size: 11px; color: var(--green); opacity: 0; transition: opacity 0.3s; }
   .save-indicator.show { opacity: 1; }
-
-  /* Auth screen */
   #auth-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; gap: 16px; text-align: center; }
   #auth-screen h2 { font-size: 18px; font-weight: 500; }
   #auth-screen p { font-size: 14px; color: var(--text2); max-width: 400px; line-height: 1.6; }
   .btn-google { display: flex; align-items: center; gap: 10px; padding: 10px 20px; border: 0.5px solid var(--border2); border-radius: var(--radius-lg); background: var(--bg); color: var(--text); font-size: 14px; font-family: inherit; cursor: pointer; transition: background 0.15s; }
   .btn-google:hover { background: var(--bg2); }
-  .btn-google svg { flex-shrink: 0; }
   .config-box { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; width: 100%; max-width: 440px; text-align: left; }
-  .config-box label { font-size: 12px; color: var(--text2); display: block; margin-bottom: 4px; margin-top: 10px; }
-  .config-box label:first-child { margin-top: 0; }
-  .config-box input { width: 100%; font-size: 13px; padding: 6px 9px; border: 0.5px solid var(--border2); border-radius: var(--radius); background: var(--bg); color: var(--text); font-family: inherit; outline: none; }
-  .config-box input:focus { border-color: var(--green); }
-  .config-note { font-size: 11px; color: var(--text3); margin-top: 8px; line-height: 1.5; }
-
-  /* App */
+  .config-box label { font-size: 12px; color: var(--text2); display: block; margin-bottom: 4px; }
+  .config-box input { width: 100%; font-size: 13px; padding: 6px 9px; border: 0.5px solid var(--border2); border-radius: var(--radius); background: var(--bg); color: var(--text); font-family: inherit; outline: none; margin-bottom: 8px; }
+  .config-note { font-size: 11px; color: var(--text3); line-height: 1.5; }
   #app-screen { display: none; }
   .user-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 8px; }
   .user-info { display: flex; align-items: center; gap: 8px; }
@@ -60,7 +52,6 @@
   .status-dot.paused { background: var(--amber); }
   .timer-display { font-size: 38px; font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: 2px; min-width: 135px; }
   select, input[type="text"], input[type="number"] { font-size: 13px; padding: 5px 9px; border: 0.5px solid var(--border2); border-radius: var(--radius); background: var(--bg); color: var(--text); height: 34px; outline: none; font-family: inherit; }
-  select:focus, input:focus { border-color: var(--green); }
   .task-input { flex: 1; min-width: 130px; }
   .btn { font-size: 13px; padding: 5px 13px; border-radius: var(--radius); border: 0.5px solid var(--border2); background: transparent; color: var(--text); cursor: pointer; height: 34px; font-family: inherit; transition: background 0.15s; }
   .btn:hover { background: var(--bg3); }
@@ -74,7 +65,6 @@
   .btn-sm { font-size: 12px; padding: 3px 10px; height: 26px; }
   .btn-danger { border-color: var(--red); color: var(--red); }
   .btn-danger:hover { background: var(--red-bg); }
-  .btn-signout { font-size: 12px; padding: 3px 10px; height: 26px; border-color: var(--border2); color: var(--text2); }
   .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; margin-bottom: 1.25rem; }
   .metric { background: var(--bg2); border-radius: var(--radius); padding: 10px 12px; border: 0.5px solid var(--border); }
   .metric-label { font-size: 11px; color: var(--text2); margin-bottom: 4px; }
@@ -107,49 +97,51 @@
   .empty { font-size: 13px; color: var(--text2); padding: 24px 10px; text-align: center; }
   .note { font-size: 11px; color: var(--text3); padding: 10px 0 0; }
   .export-row { display: flex; gap: 8px; justify-content: flex-end; margin-top: 12px; }
-  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--border2); border-top-color: var(--green); border-radius: 50%; animation: spin 0.7s linear infinite; }
+  .spinner { display: inline-block; width: 12px; height: 12px; border: 2px solid var(--border2); border-top-color: var(--green); border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; }
   @keyframes spin { to { transform: rotate(360deg); } }
-  #sync-status { font-size: 11px; color: var(--text2); }
+  .manual-card { margin-bottom: 1.25rem; }
+  .manual-title { font-size: 13px; font-weight: 500; color: var(--text2); margin-bottom: 12px; }
+  .manual-row { display: flex; align-items: flex-end; gap: 10px; flex-wrap: wrap; }
+  .manual-field { display: flex; flex-direction: column; gap: 4px; }
+  .manual-field label { font-size: 11px; color: var(--text2); }
+  .btn-manual { border-color: var(--green); color: var(--green); }
+  .btn-manual:hover { background: var(--green-bg); }
+  .manual-error { font-size: 11px; color: var(--red); margin-top: 8px; min-height: 14px; }
+  .manual-badge { font-size: 10px; padding: 1px 5px; border-radius: 4px; background: var(--amber-bg); color: var(--amber-text); margin-left: 4px; vertical-align: middle; }
 </style>
 </head>
 <body>
 
-<!-- AUTH SCREEN -->
 <div id="auth-screen">
   <h2>Banco de Horas</h2>
   <p>Seus dados são salvos no seu Google Drive, acessíveis de qualquer dispositivo.</p>
-
   <div class="config-box">
     <label>Client ID do Google (obrigatório)</label>
     <input type="text" id="client-id-input" placeholder="xxxxx.apps.googleusercontent.com" oninput="saveClientId()">
     <p class="config-note">
-      Crie gratuitamente em <strong>console.cloud.google.com</strong> → APIs &amp; Services → Credentials → OAuth 2.0 Client ID (tipo: Web application).<br>
-      Em "Authorized JavaScript origins", adicione a URL onde este arquivo estará hospedado (ou <code>http://localhost</code> para testes locais).<br><br>
+      O Client ID é salvo no navegador — você só precisa inserir uma vez por dispositivo.<br><br>
       <a href="https://console.cloud.google.com/apis/credentials" target="_blank" style="color:var(--green)">Abrir Google Cloud Console →</a>
     </p>
   </div>
-
   <button class="btn-google" onclick="signIn()">
     <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
     Entrar com Google
   </button>
 </div>
 
-<!-- APP SCREEN -->
 <div id="app-screen">
   <div class="container">
     <h1>Banco de horas semanal</h1>
     <div class="subtitle">
-      <span id="sync-status">Carregando dados...</span>
+      <span id="sync-status"></span>
       <span class="save-indicator" id="save-ind">✓ salvo no Drive</span>
     </div>
-
     <div class="user-bar">
       <div class="user-info">
         <img class="avatar" id="user-avatar" src="" alt="">
         <span class="user-name" id="user-name"></span>
       </div>
-      <button class="btn btn-signout" onclick="signOut()">Sair</button>
+      <button class="btn btn-sm" onclick="signOut()">Sair</button>
     </div>
 
     <div id="alert-box"></div>
@@ -212,19 +204,44 @@
       </div>
     </div>
 
+    <div class="card manual-card">
+      <div class="manual-title">Adicionar registro manual</div>
+      <div class="manual-row">
+        <div class="manual-field">
+          <label>Dia</label>
+          <select id="m-day-sel"></select>
+        </div>
+        <div class="manual-field">
+          <label>Início</label>
+          <input type="time" id="m-start" value="09:00">
+        </div>
+        <div class="manual-field">
+          <label>Fim</label>
+          <input type="time" id="m-end" value="17:00">
+        </div>
+        <div class="manual-field" style="flex:1;min-width:130px">
+          <label>Atividade (opcional)</label>
+          <input type="text" id="m-task" placeholder="ex: reuniões, desenvolvimento..." maxlength="60" style="width:100%;height:34px">
+        </div>
+        <div class="manual-field" style="align-self:flex-end">
+          <button class="btn btn-manual" onclick="addManual()">Adicionar</button>
+        </div>
+      </div>
+      <p id="manual-error" class="manual-error"></p>
+    </div>
+
     <div class="export-row">
       <button class="btn btn-sm" onclick="exportCSV()">Exportar CSV</button>
     </div>
-    <p class="note">Dados salvos automaticamente no seu Google Drive (arquivo: banco_de_horas.json).</p>
+    <p class="note">Dados salvos em "banco_de_horas.json" na raiz do seu Google Drive.</p>
   </div>
 </div>
 
-<!-- Google APIs -->
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <script>
 const DAYS = ['Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'];
-const DRIVE_FILENAME = 'banco_de_horas.json';
-const SCOPES = 'https://www.googleapis.com/auth/drive.appdata';
+const FILENAME = 'banco_de_horas.json';
+const SCOPES = 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
 
 let CLIENT_ID = localStorage.getItem('bh_client_id') || '';
 let accessToken = null;
@@ -233,16 +250,15 @@ let allData = {};
 let currentWeek = '';
 let startTime = null, pausedMs = 0, pauseStart = null, running = false, paused = false, ticker = null;
 
-// ── Config ──────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   if (CLIENT_ID) document.getElementById('client-id-input').value = CLIENT_ID;
 });
+
 function saveClientId() {
   CLIENT_ID = document.getElementById('client-id-input').value.trim();
   localStorage.setItem('bh_client_id', CLIENT_ID);
 }
 
-// ── Auth ─────────────────────────────────────────────────
 function signIn() {
   CLIENT_ID = document.getElementById('client-id-input').value.trim();
   if (!CLIENT_ID) { alert('Insira o Client ID antes de continuar.'); return; }
@@ -260,220 +276,242 @@ function signIn() {
   });
   client.requestAccessToken();
 }
+
 function signOut() {
-  google.accounts.oauth2.revoke(accessToken, () => {});
+  if (accessToken) google.accounts.oauth2.revoke(accessToken, () => {});
   accessToken = null; driveFileId = null; allData = {}; currentWeek = '';
   document.getElementById('auth-screen').style.display = 'flex';
   document.getElementById('app-screen').style.display = 'none';
 }
+
 async function loadUserInfo() {
   try {
-    let r = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', { headers: { Authorization: 'Bearer ' + accessToken } });
-    let u = await r.json();
+    const r = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', { headers: { Authorization: 'Bearer ' + accessToken } });
+    const u = await r.json();
     document.getElementById('user-name').textContent = u.name || u.email || '';
     if (u.picture) document.getElementById('user-avatar').src = u.picture;
   } catch(e) {}
 }
+
 function showApp() {
   document.getElementById('auth-screen').style.display = 'none';
   document.getElementById('app-screen').style.display = 'block';
-  buildDaySel(); buildWeekSel(); render();
+  buildDaySel(); buildManualDaySel(); buildWeekSel(); render();
 }
 
-// ── Drive ────────────────────────────────────────────────
 async function driveReq(url, opts = {}) {
-  let r = await fetch(url, { ...opts, headers: { Authorization: 'Bearer ' + accessToken, ...(opts.headers||{}) } });
-  return r;
+  return fetch(url, { ...opts, headers: { Authorization: 'Bearer ' + accessToken, ...(opts.headers || {}) } });
 }
+
 async function findFile() {
-  let r = await driveReq(`https://www.googleapis.com/drive/v3/files?spaces=appDataFolder&q=name='${DRIVE_FILENAME}'&fields=files(id)`);
-  let d = await r.json();
-  return d.files && d.files.length ? d.files[0].id : null;
+  const q = encodeURIComponent(`name='${FILENAME}' and mimeType='application/json' and trashed=false`);
+  const r = await driveReq(`https://www.googleapis.com/drive/v3/files?q=${q}&fields=files(id)&spaces=drive`);
+  const d = await r.json();
+  return (d.files && d.files.length) ? d.files[0].id : null;
 }
+
 async function loadFromDrive() {
-  setSyncStatus('Sincronizando...');
+  setSyncStatus('<span class="spinner"></span> Sincronizando...');
   try {
     driveFileId = await findFile();
     if (driveFileId) {
-      let r = await driveReq(`https://www.googleapis.com/drive/v3/files/${driveFileId}?alt=media`);
-      let raw = await r.json();
-      allData = raw.records || {};
-      Object.keys(allData).forEach(wk => {
-        allData[wk] = allData[wk].map(rec => ({...rec, start: new Date(rec.start), end: new Date(rec.end)}));
-      });
-      let gh = raw.goals || {};
-      if (gh.h) document.getElementById('goal-h').value = gh.h;
-      if (gh.w) document.getElementById('goal-w').value = gh.w;
+      const r = await driveReq(`https://www.googleapis.com/drive/v3/files/${driveFileId}?alt=media`);
+      if (r.ok) {
+        const raw = await r.json();
+        allData = raw.records || {};
+        Object.keys(allData).forEach(wk => {
+          allData[wk] = allData[wk].map(rec => ({ ...rec, start: new Date(rec.start), end: new Date(rec.end) }));
+        });
+        const g = raw.goals || {};
+        if (g.h) document.getElementById('goal-h').value = g.h;
+        if (g.w) document.getElementById('goal-w').value = g.w;
+      }
     }
     currentWeek = currentMonday();
     if (!allData[currentWeek]) allData[currentWeek] = [];
     setSyncStatus('');
-  } catch(e) { setSyncStatus('Erro ao carregar dados.'); }
+  } catch(e) { setSyncStatus('Erro ao carregar dados.'); console.error(e); }
 }
-async function saveToDrive() {
-  let goals = { h: parseFloat(document.getElementById('goal-h').value)||8, w: parseFloat(document.getElementById('goal-w').value)||40 };
-  let ser = {};
-  Object.keys(allData).forEach(wk => {
-    ser[wk] = allData[wk].map(r => ({...r, start: r.start.toISOString(), end: r.end.toISOString()}));
-  });
-  let body = JSON.stringify({ records: ser, goals });
-  let metadata = JSON.stringify({ name: DRIVE_FILENAME, parents: ['appDataFolder'] });
-  let blob = new Blob([body], { type: 'application/json' });
 
+async function saveToDrive() {
+  const goals = { h: parseFloat(document.getElementById('goal-h').value)||8, w: parseFloat(document.getElementById('goal-w').value)||40 };
+  const ser = {};
+  Object.keys(allData).forEach(wk => { ser[wk] = allData[wk].map(r => ({ ...r, start: r.start.toISOString(), end: r.end.toISOString() })); });
+  const body = JSON.stringify({ records: ser, goals, updatedAt: new Date().toISOString() });
   setSyncStatus('<span class="spinner"></span> Salvando...');
   try {
     if (driveFileId) {
-      await driveReq(`https://www.googleapis.com/upload/drive/v3/files/${driveFileId}?uploadType=media`, {
-        method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body
-      });
+      const r = await driveReq(`https://www.googleapis.com/upload/drive/v3/files/${driveFileId}?uploadType=media`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body });
+      if (!r.ok) throw new Error('PATCH failed ' + r.status);
     } else {
-      let form = new FormData();
-      form.append('metadata', new Blob([metadata], { type: 'application/json' }));
-      form.append('file', blob);
-      let r = await driveReq('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id', { method: 'POST', body: form });
-      let d = await r.json();
+      const meta = { name: FILENAME, mimeType: 'application/json' };
+      const form = new FormData();
+      form.append('metadata', new Blob([JSON.stringify(meta)], { type: 'application/json' }));
+      form.append('file', new Blob([body], { type: 'application/json' }));
+      const r = await driveReq('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id', { method: 'POST', body: form });
+      const d = await r.json();
+      if (!d.id) throw new Error('No ID: ' + JSON.stringify(d));
       driveFileId = d.id;
     }
     setSyncStatus('');
-    let ind = document.getElementById('save-ind');
+    const ind = document.getElementById('save-ind');
     ind.classList.add('show');
     setTimeout(() => ind.classList.remove('show'), 2000);
-  } catch(e) { setSyncStatus('Erro ao salvar.'); }
-}
-function setSyncStatus(html) {
-  document.getElementById('sync-status').innerHTML = html;
+  } catch(e) { setSyncStatus('Erro ao salvar.'); console.error(e); }
 }
 
-// ── Helpers ──────────────────────────────────────────────
+function setSyncStatus(html) { document.getElementById('sync-status').innerHTML = html; }
 function weekLabel(d) {
-  let dt = new Date(d), mon = new Date(dt);
-  mon.setDate(dt.getDate() - dt.getDay() + 1);
-  let fri = new Date(mon); fri.setDate(mon.getDate() + 4);
-  return mon.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'}) + ' – ' + fri.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'2-digit'});
+  let dt=new Date(d), mon=new Date(dt);
+  mon.setDate(dt.getDate()-dt.getDay()+1);
+  let fri=new Date(mon); fri.setDate(mon.getDate()+4);
+  return mon.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'})+' – '+fri.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'2-digit'});
 }
 function currentMonday() {
-  let d = new Date(), day = d.getDay(), diff = d.getDate() - day + (day === 0 ? -6 : 1);
-  let m = new Date(d); m.setDate(diff); m.setHours(0,0,0,0);
+  let d=new Date(), day=d.getDay(), diff=d.getDate()-day+(day===0?-6:1);
+  let m=new Date(d); m.setDate(diff); m.setHours(0,0,0,0);
   return m.toISOString().slice(0,10);
 }
-function fmt(ms) { let s=Math.floor(ms/1000),m=Math.floor(s/60),h=Math.floor(m/60);s%=60;m%=60;return[h,m,s].map(x=>String(x).padStart(2,'0')).join(':'); }
-function fmtH(ms) { let tm=Math.round(ms/60000),h=Math.floor(tm/60),m=tm%60;return h+'h '+(m<10?'0':'')+m+'m'; }
-function fmtT(d) { return d?[d.getHours(),d.getMinutes()].map(x=>String(x).padStart(2,'0')).join(':'):'—'; }
-function elapsed() { if(!startTime)return 0;let b=Date.now()-startTime-pausedMs;if(paused&&pauseStart)b-=(Date.now()-pauseStart);return Math.max(0,b); }
-function tick() { if(!paused) document.getElementById('display').textContent = fmt(elapsed()); }
+function fmt(ms){let s=Math.floor(ms/1000),m=Math.floor(s/60),h=Math.floor(m/60);s%=60;m%=60;return[h,m,s].map(x=>String(x).padStart(2,'0')).join(':');}
+function fmtH(ms){let tm=Math.round(ms/60000),h=Math.floor(tm/60),m=tm%60;return h+'h '+(m<10?'0':'')+m+'m';}
+function fmtT(d){return d?[d.getHours(),d.getMinutes()].map(x=>String(x).padStart(2,'0')).join(':'):'—';}
+function elapsed(){if(!startTime)return 0;let b=Date.now()-startTime-pausedMs;if(paused&&pauseStart)b-=(Date.now()-pauseStart);return Math.max(0,b);}
+function tick(){if(!paused)document.getElementById('display').textContent=fmt(elapsed());}
 
-// ── Timer ─────────────────────────────────────────────────
-function startTimer() {
-  if (running && !paused) return;
-  if (!running) { startTime=Date.now(); pausedMs=0; pauseStart=null; paused=false; running=true; }
-  else if (paused) { pausedMs+=Date.now()-pauseStart; pauseStart=null; paused=false; }
+function startTimer(){
+  if(running&&!paused)return;
+  if(!running){startTime=Date.now();pausedMs=0;pauseStart=null;paused=false;running=true;}
+  else if(paused){pausedMs+=Date.now()-pauseStart;pauseStart=null;paused=false;}
   setDot('running');
-  document.getElementById('btn-start').disabled = true;
-  document.getElementById('btn-pause').disabled = false;
-  document.getElementById('btn-stop').disabled = false;
-  ticker = setInterval(tick, 500);
+  document.getElementById('btn-start').disabled=true;
+  document.getElementById('btn-pause').disabled=false;
+  document.getElementById('btn-stop').disabled=false;
+  ticker=setInterval(tick,500);
 }
-function pauseTimer() {
-  if (!running||paused) return;
-  clearInterval(ticker); pauseStart=Date.now(); paused=true;
+function pauseTimer(){
+  if(!running||paused)return;
+  clearInterval(ticker);pauseStart=Date.now();paused=true;
   setDot('paused');
-  document.getElementById('btn-start').textContent = 'Retomar';
-  document.getElementById('btn-start').disabled = false;
-  document.getElementById('btn-pause').disabled = true;
+  document.getElementById('btn-start').textContent='Retomar';
+  document.getElementById('btn-start').disabled=false;
+  document.getElementById('btn-pause').disabled=true;
 }
-function stopTimer() {
-  if (!running) return;
+function stopTimer(){
+  if(!running)return;
   clearInterval(ticker);
-  let dur=elapsed(), end=new Date(), start=new Date(startTime);
-  if (dur < 5000) { resetTimer(); return; }
-  let wk = currentMonday();
-  if (!allData[wk]) allData[wk] = [];
-  currentWeek = wk;
-  allData[wk].push({ day: document.getElementById('day-sel').value, start, end, dur, task: document.getElementById('task-input').value.trim() });
-  saveToDrive(); resetTimer(); buildWeekSel(); render();
+  let dur=elapsed(),end=new Date(),start=new Date(startTime);
+  if(dur<5000){resetTimer();return;}
+  let wk=currentMonday();
+  if(!allData[wk])allData[wk]=[];
+  currentWeek=wk;
+  allData[wk].push({day:document.getElementById('day-sel').value,start,end,dur,task:document.getElementById('task-input').value.trim()});
+  saveToDrive();resetTimer();buildWeekSel();render();
 }
-function resetTimer() {
-  running=false; paused=false; startTime=null; pausedMs=0; pauseStart=null;
+function resetTimer(){
+  running=false;paused=false;startTime=null;pausedMs=0;pauseStart=null;
   clearInterval(ticker);
-  document.getElementById('display').textContent = '00:00:00';
-  document.getElementById('btn-start').textContent = 'Iniciar';
-  document.getElementById('btn-start').disabled = false;
-  document.getElementById('btn-pause').disabled = true;
-  document.getElementById('btn-stop').disabled = true;
-  document.getElementById('task-input').value = '';
+  document.getElementById('display').textContent='00:00:00';
+  document.getElementById('btn-start').textContent='Iniciar';
+  document.getElementById('btn-start').disabled=false;
+  document.getElementById('btn-pause').disabled=true;
+  document.getElementById('btn-stop').disabled=true;
+  document.getElementById('task-input').value='';
   setDot('');
 }
-function setDot(s) { let d=document.getElementById('dot'); d.className='status-dot'+(s?' '+s:''); }
-
-// ── Weeks ─────────────────────────────────────────────────
-function newWeek() { let wk=currentMonday(); if(!allData[wk])allData[wk]=[]; currentWeek=wk; saveToDrive(); buildWeekSel(); render(); }
-function clearWeek() {
-  let wk = document.getElementById('week-sel').value;
-  if (!confirm('Apagar todos os registros desta semana?')) return;
-  allData[wk] = []; saveToDrive(); render();
+function setDot(s){let d=document.getElementById('dot');d.className='status-dot'+(s?' '+s:'');}
+function newWeek(){let wk=currentMonday();if(!allData[wk])allData[wk]=[];currentWeek=wk;saveToDrive();buildWeekSel();render();}
+function clearWeek(){
+  let wk=document.getElementById('week-sel').value;
+  if(!confirm('Apagar todos os registros desta semana?'))return;
+  allData[wk]=[];saveToDrive();render();
 }
-function deleteRecord(wk, i) { allData[wk].splice(i,1); saveToDrive(); render(); }
-function dayTotal(recs, day) { return recs.filter(r=>r.day===day).reduce((a,r)=>a+r.dur,0); }
-
-function buildWeekSel() {
-  let sel = document.getElementById('week-sel');
-  let weeks = [...new Set([...Object.keys(allData), currentWeek])].sort().reverse();
-  sel.innerHTML = weeks.map(w => `<option value="${w}"${w===currentWeek?' selected':''}>${weekLabel(w)}</option>`).join('');
+function deleteRecord(wk,i){allData[wk].splice(i,1);saveToDrive();render();}
+function dayTotal(recs,day){return recs.filter(r=>r.day===day).reduce((a,r)=>a+r.dur,0);}
+function buildWeekSel(){
+  let sel=document.getElementById('week-sel');
+  let weeks=[...new Set([...Object.keys(allData),currentWeek])].sort().reverse();
+  sel.innerHTML=weeks.map(w=>`<option value="${w}"${w===currentWeek?' selected':''}>${weekLabel(w)}</option>`).join('');
 }
-function buildDaySel() {
-  let sel = document.getElementById('day-sel');
-  sel.innerHTML = DAYS.map(d => `<option value="${d}">${d}</option>`).join('');
-  let map = [6,0,1,2,3,4,5];
-  sel.value = DAYS[map[new Date().getDay()]] || 'Segunda';
+function buildDaySel(){
+  let sel=document.getElementById('day-sel');
+  sel.innerHTML=DAYS.map(d=>`<option value="${d}">${d}</option>`).join('');
+  let map=[6,0,1,2,3,4,5];
+  sel.value=DAYS[map[new Date().getDay()]]||'Segunda';
 }
-
-function exportCSV() {
-  let wk = document.getElementById('week-sel').value;
-  let recs = allData[wk] || [];
-  if (!recs.length) { alert('Nenhum registro para exportar.'); return; }
-  let rows = [['Semana','Dia','Início','Fim','Duração (min)','Atividade']];
-  recs.forEach(r => rows.push([weekLabel(wk), r.day, fmtT(r.start), fmtT(r.end), Math.round(r.dur/60000), r.task||'']));
-  let csv = rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');
-  let a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));
-  a.download = 'banco_de_horas_'+wk+'.csv';
+function buildManualDaySel(){
+  let sel=document.getElementById('m-day-sel');
+  sel.innerHTML=DAYS.map(d=>`<option value="${d}">${d}</option>`).join('');
+  let map=[6,0,1,2,3,4,5];
+  sel.value=DAYS[map[new Date().getDay()]]||'Segunda';
+}
+function addManual(){
+  const errEl = document.getElementById('manual-error');
+  errEl.textContent = '';
+  const day = document.getElementById('m-day-sel').value;
+  const startStr = document.getElementById('m-start').value;
+  const endStr = document.getElementById('m-end').value;
+  const task = document.getElementById('m-task').value.trim();
+  if (!startStr || !endStr) { errEl.textContent = 'Informe o horário de início e fim.'; return; }
+  const [sh, sm] = startStr.split(':').map(Number);
+  const [eh, em] = endStr.split(':').map(Number);
+  const startMins = sh * 60 + sm;
+  const endMins = eh * 60 + em;
+  if (endMins <= startMins) { errEl.textContent = 'O horário de fim deve ser posterior ao de início.'; return; }
+  const dur = (endMins - startMins) * 60000;
+  const wk = document.getElementById('week-sel').value || currentWeek;
+  if (!allData[wk]) allData[wk] = [];
+  const base = new Date(wk);
+  const start = new Date(base); start.setHours(sh, sm, 0, 0);
+  const end = new Date(base); end.setHours(eh, em, 0, 0);
+  allData[wk].push({ day, start, end, dur, task, manual: true });
+  document.getElementById('m-task').value = '';
+  saveToDrive(); buildWeekSel(); render();
+}
+function exportCSV(){
+  let wk=document.getElementById('week-sel').value;
+  let recs=allData[wk]||[];
+  if(!recs.length){alert('Nenhum registro para exportar.');return;}
+  let rows=[['Semana','Dia','Início','Fim','Duração (min)','Atividade']];
+  recs.forEach(r=>rows.push([weekLabel(wk),r.day,fmtT(r.start),fmtT(r.end),Math.round(r.dur/60000),r.task||'']));
+  let csv=rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');
+  let a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));
+  a.download='banco_de_horas_'+wk+'.csv';
   a.click();
 }
-
-// ── Render ────────────────────────────────────────────────
-function render() {
-  let wk = document.getElementById('week-sel') ? document.getElementById('week-sel').value : currentWeek;
-  let recs = allData[wk] || [];
-  let goalH = parseFloat(document.getElementById('goal-h').value)||8;
-  let goalW = parseFloat(document.getElementById('goal-w').value)||40;
-  let goalHms = goalH*3600000, goalWms = goalW*3600000;
-  let total = recs.reduce((a,r)=>a+r.dur,0);
-  let days = [...new Set(recs.map(r=>r.day))];
-  let avgMs = days.length ? total/days.length : 0;
-  let maxMs = days.reduce((a,d)=>Math.max(a,dayTotal(recs,d)),0);
-  let maxDay = days.find(d=>dayTotal(recs,d)===maxMs)||'—';
-  document.getElementById('m-total').textContent = recs.length ? fmtH(total) : '0h 00m';
-  document.getElementById('m-count').textContent = recs.length;
-  document.getElementById('m-avg').textContent = days.length ? fmtH(avgMs) : '—';
-  document.getElementById('m-max').textContent = maxMs ? maxDay+' '+fmtH(maxMs) : '—';
-  document.getElementById('rec-count').textContent = recs.length+' registro'+(recs.length!==1?'s':'');
-  let pct = Math.min(100, Math.round(total/goalWms*100));
-  let ab = document.getElementById('alert-box');
-  if (total > goalWms) ab.innerHTML = '<div class="alert alert-warn">Você ultrapassou a meta semanal de '+goalW+'h. Considere pausar e descansar.</div>';
-  else if (total > goalWms*0.9) ab.innerHTML = '<div class="alert alert-warn">Você está em '+pct+'% da meta semanal. Cuide do seu ritmo.</div>';
-  else ab.innerHTML = '';
-  let maxDayMs = Math.max(...DAYS.map(d=>dayTotal(recs,d)), goalHms);
-  document.getElementById('bars').innerHTML = DAYS.map(d => {
-    let ms = dayTotal(recs,d), p = ms?Math.min(100,Math.round(ms/maxDayMs*100)):0;
-    let color = ms > goalHms ? '#A32D2D' : '#1D9E75';
+function render(){
+  let wk=document.getElementById('week-sel')?document.getElementById('week-sel').value:currentWeek;
+  let recs=allData[wk]||[];
+  let goalH=parseFloat(document.getElementById('goal-h').value)||8;
+  let goalW=parseFloat(document.getElementById('goal-w').value)||40;
+  let goalHms=goalH*3600000,goalWms=goalW*3600000;
+  let total=recs.reduce((a,r)=>a+r.dur,0);
+  let days=[...new Set(recs.map(r=>r.day))];
+  let avgMs=days.length?total/days.length:0;
+  let maxMs=days.reduce((a,d)=>Math.max(a,dayTotal(recs,d)),0);
+  let maxDay=days.find(d=>dayTotal(recs,d)===maxMs)||'—';
+  document.getElementById('m-total').textContent=recs.length?fmtH(total):'0h 00m';
+  document.getElementById('m-count').textContent=recs.length;
+  document.getElementById('m-avg').textContent=days.length?fmtH(avgMs):'—';
+  document.getElementById('m-max').textContent=maxMs?maxDay+' '+fmtH(maxMs):'—';
+  document.getElementById('rec-count').textContent=recs.length+' registro'+(recs.length!==1?'s':'');
+  let pct=Math.min(100,Math.round(total/goalWms*100));
+  let ab=document.getElementById('alert-box');
+  if(total>goalWms)ab.innerHTML='<div class="alert alert-warn">Você ultrapassou a meta semanal de '+goalW+'h. Considere pausar e descansar.</div>';
+  else if(total>goalWms*0.9)ab.innerHTML='<div class="alert alert-warn">Você está em '+pct+'% da meta semanal. Cuide do seu ritmo.</div>';
+  else ab.innerHTML='';
+  let maxDayMs=Math.max(...DAYS.map(d=>dayTotal(recs,d)),goalHms);
+  document.getElementById('bars').innerHTML=DAYS.map(d=>{
+    let ms=dayTotal(recs,d),p=ms?Math.min(100,Math.round(ms/maxDayMs*100)):0;
+    let color=ms>goalHms?'#A32D2D':'#1D9E75';
     return '<div class="bar-row"><span class="bar-label">'+d.slice(0,3)+'</span><div class="bar-bg"><div class="bar-fill" style="width:'+p+'%;background:'+color+'"></div></div><span class="bar-val">'+(ms?fmtH(ms):'—')+'</span></div>';
   }).join('');
-  let tbody = document.getElementById('tbody');
-  if (!recs.length) { tbody.innerHTML=''; document.getElementById('empty-msg').style.display='block'; return; }
+  let tbody=document.getElementById('tbody');
+  if(!recs.length){tbody.innerHTML='';document.getElementById('empty-msg').style.display='block';return;}
   document.getElementById('empty-msg').style.display='none';
-  tbody.innerHTML = recs.map((_,i)=>i).sort((a,b)=>b-a).map(i => {
-    let r = recs[i];
-    return '<tr><td><span class="day-badge">'+r.day+'</span></td><td>'+fmtT(r.start)+'</td><td>'+fmtT(r.end)+'</td><td>'+fmtH(r.dur)+'</td><td style="font-size:12px">'+(r.task||'<span style="color:var(--text2)">—</span>')+'</td><td><button class="del-btn" onclick="deleteRecord(\''+wk+'\','+i+')">remover</button></td></tr>';
+  tbody.innerHTML=recs.map((_,i)=>i).sort((a,b)=>b-a).map(i=>{
+    let r=recs[i];
+    return '<tr><td><span class="day-badge">'+r.day+'</span>'+(r.manual?'<span class="manual-badge">manual</span>':'')+'</td><td>'+fmtT(r.start)+'</td><td>'+fmtT(r.end)+'</td><td>'+fmtH(r.dur)+'</td><td style="font-size:12px">'+(r.task||'<span style="color:var(--text2)">—</span>')+'</td><td><button class="del-btn" onclick="deleteRecord(\''+wk+'\','+i+')">remover</button></td></tr>';
   }).join('');
 }
 </script>
